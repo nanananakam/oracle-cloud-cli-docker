@@ -3,7 +3,7 @@ jobs:
   build_x86_64:
     machine:
       image: ubuntu-2004:current
-    resource_clas: medium
+    resource_class: medium
     steps:
       - checkout
       - run:
@@ -18,7 +18,7 @@ jobs:
   build_aarch64:
     machine:
       image: ubuntu-2004:current
-    resource_clas: arm.medium
+    resource_class: arm.medium
     steps:
       - checkout
       - run:
