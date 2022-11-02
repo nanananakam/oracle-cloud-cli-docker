@@ -12,6 +12,6 @@ RUN apt-get update && apt-get -y install curl jq apt-transport-https gnupg2 unzi
     && curl -OL https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh \
     && chmod a+x ./install.sh \
     && ./install.sh --accept-all-defaults \
-    && rm install.sh \
+    && rm ./install.sh \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
