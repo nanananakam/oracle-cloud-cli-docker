@@ -1,0 +1,39 @@
+version: 2.1
+jobs:
+  build_x86_64:
+    machine:
+      image: ubuntu-2004:current
+    resource_clas: medium
+    steps:
+      - checkout
+      - run:
+          name: Docker Login
+          command: docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+      - run:
+          name: Docker Build
+          command: docker build --build-arg ARCH=x86_64 -t nanananakam/oracle-cloud-cli .
+      - run:
+          name: Docker Push
+          command: docker push nanananakam/oracle-cloud-cli
+  build_aarch64:
+    machine:
+      image: ubuntu-2004:current
+    resource_clas: arm.medium
+    steps:
+      - checkout
+      - run:
+          name: Docker Login
+          command: docker login -u ${DOCKER_USER} -p ${DOCKER_PASSWORD}
+      - run:
+          name: Docker Build
+          command: docker build --build-arg ARCH=aarch64 -t nanananakam/oracle-cloud-cli .
+      - run:
+          name: Docker Push
+          command: docker push nanananakam/oracle-cloud-cli
+
+workflows:
+  version: 2
+  workflow:
+    jobs:
+      - build_x86_64
+      - build_aarch64
