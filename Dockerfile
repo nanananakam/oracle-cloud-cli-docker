@@ -14,4 +14,5 @@ RUN apt-get update && apt-get -y install curl jq unzip\
     && ./install.sh --accept-all-defaults --exec-dir /usr/local/bin \
     && rm ./install.sh \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /tmp/*
