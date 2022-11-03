@@ -11,7 +11,7 @@ jobs:
           command: docker login -u nanananakam -p ${DOCKER_PASSWORD}
       - run:
           name: Docker Build
-          command: docker build --build-arg ARCH=x86_64 -t nanananakam/oracle-cloud-cli:x86_64 .
+          command: docker build --build-arg AWSCLI_ARCH=x86_64 --build_arg KUBECTL_ARCH=amd64 -t nanananakam/oracle-cloud-cli:x86_64 .
       - run:
           name: Docker Push
           command: docker push nanananakam/oracle-cloud-cli:x86_64
@@ -26,7 +26,7 @@ jobs:
           command: docker login -u nanananakam -p ${DOCKER_PASSWORD}
       - run:
           name: Docker Build
-          command: docker build --build-arg ARCH=aarch64 -t nanananakam/oracle-cloud-cli:aarch64 .
+          command: docker build --build-arg AWSCLI_ARCH=aarch64 --build_arg KUBECTL_ARCH=arm64 -t nanananakam/oracle-cloud-cli:aarch64 .
       - run:
           name: Docker Push
           command: docker push nanananakam/oracle-cloud-cli:aarch64
