@@ -8,7 +8,7 @@ RUN apt-get update && apt-get -y install curl jq unzip\
     && chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl \
     && curl "https://awscli.amazonaws.com/awscli-exe-linux-$AWSCLI_ARCH.zip" -o "awscliv2.zip" \
     && unzip -q awscliv2.zip && rm awscliv2.zip \
-    && ./aws/install \
+    && ./aws/install && rm -rf ./aws \
     && curl -OL https://raw.githubusercontent.com/oracle/oci-cli/master/scripts/install/install.sh \
     && chmod a+x ./install.sh \
     && ./install.sh --accept-all-defaults --exec-dir /usr/local/bin \
